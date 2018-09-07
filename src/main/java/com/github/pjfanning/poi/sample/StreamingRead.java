@@ -31,7 +31,8 @@ public class StreamingRead {
         try (Workbook workbook = StreamingReader.builder()
                 .rowCacheSize(100)
                 .bufferSize(4096)
-                .sstCacheSize(1000)
+                .setUseSstTempFile(true)
+                .setEncryptSstTempFile(true)
                 .open(xlsxFile)) {
             for (Sheet sheet : workbook){
                 System.out.println("Sheet: " + sheet.getSheetName());
