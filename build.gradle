@@ -1,0 +1,18 @@
+apply plugin: 'application'
+apply plugin: 'java'
+
+group = 'com.github.pjfanning'
+version = '0.1.0'
+
+mainClassName = 'com.github.pjfanning.poi.sample.XLSX2CSV'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
+dependencies {
+    compile 'com.github.pjfanning:excel-streaming-reader:2.0.0-SNAPSHOT'
+}
