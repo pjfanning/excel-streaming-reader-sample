@@ -9,11 +9,11 @@ mainClassName = 'com.github.pjfanning.poi.sample.StreamingRead'
 repositories {
     mavenCentral()
     maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots/"
+        url "https://oss.sonatype.org/content/repositories/releases/"
     }
 }
 
 dependencies {
-    compile 'com.github.pjfanning:excel-streaming-reader:2.0.0-SNAPSHOT'
+    compile 'com.github.pjfanning:excel-streaming-reader:2.0.0'
     runtime 'org.slf4j:slf4j-simple:1.7.25'
 }
