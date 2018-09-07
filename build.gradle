@@ -4,7 +4,7 @@ apply plugin: 'java'
 group = 'com.github.pjfanning'
 version = '0.1.0'
 
-mainClassName = 'com.github.pjfanning.poi.sample.XLSX2CSV'
+mainClassName = 'com.github.pjfanning.poi.sample.StreamingRead'
 
 repositories {
     mavenCentral()
@@ -15,4 +15,5 @@ repositories {
 
 dependencies {
     compile 'com.github.pjfanning:excel-streaming-reader:2.0.0-SNAPSHOT'
+    runtime 'org.slf4j:slf4j-simple:1.7.25'
 }
