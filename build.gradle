@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.pjfanning:excel-streaming-reader:3.0.5'
+    implementation 'com.github.pjfanning:excel-streaming-reader:3.1.0'
     runtimeOnly 'xerces:xercesImpl:2.12.1'
     runtimeOnly 'org.slf4j:slf4j-simple:1.7.31'
 }
