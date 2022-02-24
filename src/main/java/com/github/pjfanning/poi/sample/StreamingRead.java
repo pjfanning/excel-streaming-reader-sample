@@ -35,7 +35,7 @@ public class StreamingRead {
                 .setSharedStringsImplementationType(SharedStringsImplementationType.TEMP_FILE_BACKED)
                 .setEncryptSstTempFile(true)
                 .open(xlsxFile)) {
-            for (Sheet sheet : workbook){
+            for (Sheet sheet : workbook) {
                 System.out.println("Sheet: " + sheet.getSheetName());
                 for (Row r : sheet) {
                     for (Cell c : r) {
