@@ -1,5 +1,6 @@
 package com.github.pjfanning.poi.sample;
 
+import com.github.pjfanning.xlsx.SharedStringsImplementationType;
 import com.github.pjfanning.xlsx.StreamingReader;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -31,7 +32,7 @@ public class StreamingRead {
         try (Workbook workbook = StreamingReader.builder()
                 .rowCacheSize(100)
                 .bufferSize(4096)
-                .setUseSstTempFile(true)
+                .setSharedStringsImplementationType(SharedStringsImplementationType.TEMP_FILE_BACKED)
                 .setEncryptSstTempFile(true)
                 .open(xlsxFile)) {
             for (Sheet sheet : workbook){
