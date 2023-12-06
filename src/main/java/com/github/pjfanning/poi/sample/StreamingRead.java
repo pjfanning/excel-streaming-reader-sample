@@ -3,6 +3,7 @@ package com.github.pjfanning.poi.sample;
 import com.github.pjfanning.xlsx.SharedStringsImplementationType;
 import com.github.pjfanning.xlsx.StreamingReader;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -29,18 +30,19 @@ public class StreamingRead {
             return;
         }
 
+        DataFormatter dataFormatter = new DataFormatter();
+        dataFormatter.setUseCachedValuesForFormulaCells(true);
         try (Workbook workbook = StreamingReader.builder()
                 .rowCacheSize(100)
                 .bufferSize(4096)
-                .setSharedStringsImplementationType(SharedStringsImplementationType.TEMP_FILE_BACKED)
-                .setEncryptSstTempFile(true)
+                .setSharedStringsImplementationType(SharedStringsImplementationType.POI_READ_ONLY)
                 .open(xlsxFile)) {
             for (Sheet sheet : workbook) {
                 System.out.println("Sheet: " + sheet.getSheetName());
                 for (Row r : sheet) {
                     for (Cell c : r) {
                         System.out.print('"');
-                        System.out.print(c.getStringCellValue());
+                        System.out.print(dataFormatter.formatCellValue(c));
                         System.out.print("\",");
                     }
                     System.out.println();
