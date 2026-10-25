@@ -1,22 +1,28 @@
-apply plugin: 'application'
-apply plugin: 'java'
+plugins {
+    id 'java'
+    id 'application'
+}
 
 group = 'com.github.pjfanning'
 version = '0.1.0'
 
-mainClassName = 'com.github.pjfanning.poi.sample.StreamingRead'
-
-repositories {
-    mavenCentral()
-    maven {
-        url "https://oss.sonatype.org/content/repositories/snapshots"
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
-dependencies {
-    implementation 'com.github.pjfanning:excel-streaming-reader:5.1.2'
-    runtimeOnly 'xerces:xercesImpl:2.12.2'
-    runtimeOnly 'org.slf4j:slf4j-simple:2.0.17'
-    runtimeOnly 'org.apache.logging.log4j:log4j-to-slf4j:2.24.3'
+application {
+    mainClass = 'com.github.pjfanning.poi.sample.StreamingRead'
 }
 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.github.pjfanning:excel-streaming-reader:6.0.0'
+    runtimeOnly 'xerces:xercesImpl:2.12.2'
+    runtimeOnly 'org.slf4j:slf4j-simple:2.0.20'
+    runtimeOnly 'org.apache.logging.log4j:log4j-to-slf4j:2.26.1'
+}
